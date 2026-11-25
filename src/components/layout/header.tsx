@@ -1,10 +1,13 @@
-import { Calendar } from "lucide-react";
+import { Calendar, Globe } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { ToggleTheme } from "@/components/layout/change-theme";
+import { Button } from "@/components/ui/button";
+import { HAS_CUSTOMER_PORTAL } from "@/prompify-settings";
 
 /** Business name and tagline shown above the calendar. */
-const APP_NAME = "Appointments";
-const APP_TAGLINE = "Book and manage appointments";
+export const APP_NAME = "Appointments";
+export const APP_TAGLINE = "Book and manage appointments";
 
 export function Header() {
   return (
@@ -22,6 +25,14 @@ export function Header() {
         </div>
 
         <div className="flex items-center gap-2">
+          {HAS_CUSTOMER_PORTAL && (
+            <Button variant="outline" asChild>
+              <Link to="/book">
+                <Globe />
+                Booking page
+              </Link>
+            </Button>
+          )}
           <ToggleTheme />
         </div>
       </div>

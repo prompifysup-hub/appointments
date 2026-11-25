@@ -13,6 +13,8 @@ import { ChangeWorkingHoursInput } from "@/calendar/components/change-working-ho
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 import { getEvents, getUsers } from "@/calendar/requests";
+import { BookingPage } from "@/booking/booking-page";
+import { AUDIENCE, HAS_CUSTOMER_PORTAL } from "@/prompify-settings";
 
 import type { IEvent, IUser } from "@/calendar/interfaces";
 
@@ -67,7 +69,8 @@ function CalendarLayout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
+/** The staff app: header, calendar views and settings. */
+function StaffApp() {
   return (
     <>
       <Header />
@@ -82,5 +85,16 @@ export default function App() {
         </Routes>
       </CalendarLayout>
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      {/* Public booking page, when "Who uses it?" includes customers (src/prompify-settings.ts). */}
+      {HAS_CUSTOMER_PORTAL && <Route path="/book" element={<BookingPage />} />}
+      {AUDIENCE === "customers" && <Route path="/" element={<Navigate to="/book" replace />} />}
+      <Route path="*" element={<StaffApp />} />
+    </Routes>
   );
 }

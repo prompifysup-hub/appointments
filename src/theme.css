@@ -1,0 +1,72 @@
+/*
+ * THEME — the whole look of the app lives here: colours, corner radius, font and shadows.
+ * Every screen uses these through Tailwind classes (bg-background, bg-card, bg-muted, border-border,
+ * text-foreground, text-muted-foreground, bg-primary, text-primary-foreground, bg-accent (shadcn
+ * hover = --hover), bg-highlight (the brand accent = --accent), text-success, text-warning,
+ * text-destructive, rounded-lg, shadow-card, font-sans). Never write raw colours in components; add a
+ * variable here instead. Colours are "R G B" channels so Tailwind opacity works (bg-primary/15).
+ *
+ * Prompify rewrites this file from the user's colour palette and chosen style.
+ * Default: the original Big Calendar look (dark by default, with a light / dark switch).
+ */
+:root {
+  --radius: 0.5rem;
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+}
+
+:root,
+.dark {
+  color-scheme: dark;
+
+  --background: 9 9 11;
+  --foreground: 250 250 250;
+  --card: 9 9 11;
+  --muted: 39 39 42;
+  --muted-foreground: 161 161 170;
+  --border: 39 39 42;
+  --input: 39 39 42;
+  --hover: 39 39 42;
+  --hover-foreground: 250 250 250;
+
+  --primary: 250 250 250;
+  --primary-foreground: 24 24 27;
+  --ring: 212 212 216;
+  --accent: 59 130 246;
+  --accent-foreground: 255 255 255;
+
+  --success: 74 222 128;
+  --warning: 250 204 21;
+  --destructive: 127 29 29;
+  --destructive-foreground: 250 250 250;
+
+  --shadow-card: none;
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4);
+}
+
+.light {
+  color-scheme: light;
+
+  --background: 255 255 255;
+  --foreground: 9 9 11;
+  --card: 255 255 255;
+  --muted: 244 244 245;
+  --muted-foreground: 113 113 122;
+  --border: 228 228 231;
+  --input: 228 228 231;
+  --hover: 244 244 245;
+  --hover-foreground: 24 24 27;
+
+  --primary: 24 24 27;
+  --primary-foreground: 250 250 250;
+  --ring: 24 24 27;
+  --accent: 37 99 235;
+  --accent-foreground: 255 255 255;
+
+  --success: 22 163 74;
+  --warning: 202 138 4;
+  --destructive: 239 68 68;
+  --destructive-foreground: 250 250 250;
+
+  --shadow-card: none;
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}

@@ -2,13 +2,16 @@ import animatePlugin from "tailwindcss-animate";
 
 import type { Config } from "tailwindcss";
 
+const token = (name: string) => `rgb(var(--${name}) / <alpha-value>)`;
+
 const config: Config = {
   content: ["./src/**/*.tsx"],
   darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        inter: "var(--font-inter)",
+        inter: "var(--font-sans)",
+        sans: "var(--font-sans)",
       },
       fontSize: {
         xxs: ["0.625rem", "1rem"],
@@ -37,49 +40,33 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        "calendar-disabled-hour": "repeating-linear-gradient(-60deg, hsl(var(--border)) 0 0.5px, transparent 0.5px 8px)",
+        "calendar-disabled-hour": "repeating-linear-gradient(-60deg, rgb(var(--border)) 0 0.5px, transparent 0.5px 8px)",
       },
+      /*
+       * Colours, radius and font come from CSS variables in src/theme.css ("R G B" channels).
+       * shadcn names map onto the theme: secondary / popover reuse muted / card, `accent` is shadcn's
+       * subtle hover (--hover), and `highlight` is the brand accent colour (--accent).
+       */
       colors: {
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        chart: {
-          "1": "hsl(var(--chart-1))",
-          "2": "hsl(var(--chart-2))",
-          "3": "hsl(var(--chart-3))",
-          "4": "hsl(var(--chart-4))",
-          "5": "hsl(var(--chart-5))",
-        },
+        background: token("background"),
+        foreground: token("foreground"),
+        card: { DEFAULT: token("card"), foreground: token("foreground") },
+        popover: { DEFAULT: token("card"), foreground: token("foreground") },
+        primary: { DEFAULT: token("primary"), foreground: token("primary-foreground") },
+        secondary: { DEFAULT: token("muted"), foreground: token("foreground") },
+        muted: { DEFAULT: token("muted"), foreground: token("muted-foreground") },
+        accent: { DEFAULT: token("hover"), foreground: token("hover-foreground") },
+        highlight: { DEFAULT: token("accent"), foreground: token("accent-foreground") },
+        destructive: { DEFAULT: token("destructive"), foreground: token("destructive-foreground") },
+        success: token("success"),
+        warning: token("warning"),
+        border: token("border"),
+        input: token("input"),
+        ring: token("ring"),
+      },
+      boxShadow: {
+        card: "var(--shadow-card)",
+        lg: "var(--shadow-lg)",
       },
       keyframes: {
         "accordion-down": {

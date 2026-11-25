@@ -24,7 +24,8 @@ interface ICalendarContext {
 
 const CalendarContext = createContext({} as ICalendarContext);
 
-const WORKING_HOURS = {
+/** Opening hours per weekday (0 = Sunday); from == to means closed. Also used by the booking page. */
+export const WORKING_HOURS = {
   0: { from: 0, to: 0 },
   1: { from: 8, to: 17 },
   2: { from: 8, to: 17 },
