@@ -3,6 +3,7 @@ import { useCalendar } from "@/calendar/contexts/calendar-context";
 import { AvatarGroup } from "@/components/ui/avatar-group";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { TEXT } from "@/config/text";
 
 export function UserSelect() {
   const { users, selectedUserId, setSelectedUserId } = useCalendar();
@@ -24,7 +25,7 @@ export function UserSelect() {
                 </Avatar>
               ))}
             </AvatarGroup>
-            All
+            {TEXT.calendar.allStaff}
           </div>
         </SelectItem>
 

@@ -4,6 +4,8 @@
 
 html {
   font-family: var(--font-sans);
+  font-size: var(--font-size-base, 16px);
+  letter-spacing: var(--letter-spacing, normal);
 }
 
 body {

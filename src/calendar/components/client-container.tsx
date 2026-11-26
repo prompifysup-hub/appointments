@@ -1,5 +1,3 @@
-"use client";
-
 import { useMemo } from "react";
 import { isSameDay, parseISO } from "date-fns";
 
@@ -8,7 +6,6 @@ import { useCalendar } from "@/calendar/contexts/calendar-context";
 import { DndProviderWrapper } from "@/calendar/components/dnd/dnd-provider";
 
 import { CalendarHeader } from "@/calendar/components/header/calendar-header";
-import { CalendarYearView } from "@/calendar/components/year-view/calendar-year-view";
 import { CalendarMonthView } from "@/calendar/components/month-view/calendar-month-view";
 import { CalendarAgendaView } from "@/calendar/components/agenda-view/calendar-agenda-view";
 import { CalendarDayView } from "@/calendar/components/week-and-day-view/calendar-day-view";
@@ -27,14 +24,6 @@ export function ClientContainer({ view }: IProps) {
     return events.filter(event => {
       const eventStartDate = parseISO(event.startDate);
       const eventEndDate = parseISO(event.endDate);
-
-      if (view === "year") {
-        const yearStart = new Date(selectedDate.getFullYear(), 0, 1);
-        const yearEnd = new Date(selectedDate.getFullYear(), 11, 31, 23, 59, 59, 999);
-        const isInSelectedYear = eventStartDate <= yearEnd && eventEndDate >= yearStart;
-        const isUserMatch = selectedUserId === "all" || event.user.id === selectedUserId;
-        return isInSelectedYear && isUserMatch;
-      }
 
       if (view === "month" || view === "agenda") {
         const monthStart = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
@@ -82,13 +71,6 @@ export function ClientContainer({ view }: IProps) {
     return !isSameDay(startDate, endDate);
   });
 
-  // For year view, we only care about the start date
-  // by using the same date for both start and end,
-  // we ensure only the start day will show a dot
-  const eventStartDates = useMemo(() => {
-    return filteredEvents.map(event => ({ ...event, endDate: event.startDate }));
-  }, [filteredEvents]);
-
   return (
     <div className="overflow-hidden rounded-xl border">
       <CalendarHeader view={view} events={filteredEvents} />
@@ -97,7 +79,6 @@ export function ClientContainer({ view }: IProps) {
         {view === "day" && <CalendarDayView singleDayEvents={singleDayEvents} multiDayEvents={multiDayEvents} />}
         {view === "month" && <CalendarMonthView singleDayEvents={singleDayEvents} multiDayEvents={multiDayEvents} />}
         {view === "week" && <CalendarWeekView singleDayEvents={singleDayEvents} multiDayEvents={multiDayEvents} />}
-        {view === "year" && <CalendarYearView allEvents={eventStartDates} />}
         {view === "agenda" && <CalendarAgendaView singleDayEvents={singleDayEvents} multiDayEvents={multiDayEvents} />}
       </DndProviderWrapper>
     </div>

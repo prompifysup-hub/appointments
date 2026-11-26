@@ -11,6 +11,7 @@ import { getEventsCount, navigateDate, rangeText } from "@/calendar/helpers";
 
 import type { IEvent } from "@/calendar/interfaces";
 import type { TCalendarView } from "@/calendar/types";
+import { TEXT } from "@/config/text";
 
 interface IProps {
   view: TCalendarView;
@@ -31,11 +32,11 @@ export function DateNavigator({ view, events }: IProps) {
   return (
     <div className="space-y-0.5">
       <div className="flex items-center gap-2">
-        <span className="text-lg font-semibold">
+        <span className="text-lg font-heading">
           {month} {year}
         </span>
         <Badge variant="outline" className="px-1.5">
-          {eventCount} events
+          {TEXT.calendar.count(eventCount)}
         </Badge>
       </div>
 

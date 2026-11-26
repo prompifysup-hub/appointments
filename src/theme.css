@@ -10,8 +10,21 @@
  * Default: the original Big Calendar look (dark by default, with a light / dark switch).
  */
 :root {
-  --radius: 0.5rem;
+  /* Shapes */
+  --radius: 0.5rem; /* cards, popovers, menus (rounded-lg) */
+  --radius-button: calc(0.5rem - 2px); /* buttons; 9999px = pill */
+  --radius-badge: calc(0.5rem - 2px); /* badges */
+
+  /* Typography */
   --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-size-base: 16px; /* everything scales with this: 15px = compact, 17px = spacious */
+  --heading-weight: 600; /* page titles and the month label */
+  --letter-spacing: normal;
+
+  /* Spacing */
+  --card-padding: 1.25rem; /* booking page cards */
+  --control-padding-x: 0.75rem; /* inside inputs, text areas, dropdowns */
+  --control-padding-y: 0.5rem;
 }
 
 :root,

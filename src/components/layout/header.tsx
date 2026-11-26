@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import { ToggleTheme } from "@/components/layout/change-theme";
 import { Button } from "@/components/ui/button";
 import { HAS_CUSTOMER_PORTAL } from "@/prompify-settings";
+import { APP } from "@/config/app";
+import { TEXT } from "@/config/text";
 
-/** Business name and tagline shown above the calendar. */
-export const APP_NAME = "Appointments";
-export const APP_TAGLINE = "Book and manage appointments";
-
+/** Staff header: business name and tagline, the booking page link, the light / dark switch. */
 export function Header() {
   return (
     <header className="mx-auto flex h-[88px] w-full max-w-screen-2xl items-center justify-center">
@@ -19,8 +18,8 @@ export function Header() {
           </div>
 
           <div className="space-y-1">
-            <p className="text-lg font-medium leading-6">{APP_NAME}</p>
-            <p className="text-sm text-foreground">{APP_TAGLINE}</p>
+            <p className="text-lg font-medium leading-6">{APP.name}</p>
+            <p className="text-sm text-foreground">{APP.tagline}</p>
           </div>
         </div>
 
@@ -29,7 +28,7 @@ export function Header() {
             <Button variant="outline" asChild>
               <Link to="/book">
                 <Globe />
-                Booking page
+                {TEXT.header.bookingPage}
               </Link>
             </Button>
           )}

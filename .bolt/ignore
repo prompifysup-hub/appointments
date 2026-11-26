@@ -1,4 +1,11 @@
-src/components/ui/**
+src/components/ui/calendar.tsx
+src/components/ui/time-input.tsx
+src/components/ui/single-day-picker.tsx
+src/components/ui/popover.tsx
+src/components/ui/scroll-area.tsx
+src/components/ui/tooltip.tsx
+src/components/ui/form.tsx
+src/components/ui/avatar-group.tsx
 src/lib/prompify.ts
 src/lib/utils.ts
 src/calendar/mocks.ts

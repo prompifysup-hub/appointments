@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import { groupEvents, getEventBlockStyle, isWorkingHour, getVisibleHours } from "@/calendar/helpers";
 
 import type { IEvent } from "@/calendar/interfaces";
+import { TEXT } from "@/config/text";
 
 interface IProps {
   singleDayEvents: IEvent[];
@@ -31,8 +32,8 @@ export function CalendarWeekView({ singleDayEvents, multiDayEvents }: IProps) {
   return (
     <>
       <div className="flex flex-col items-center justify-center border-b py-4 text-sm text-muted-foreground sm:hidden">
-        <p>Weekly view is not available on smaller devices.</p>
-        <p>Please switch to daily or monthly view.</p>
+        <p>{TEXT.calendar.weekViewSmallScreen}</p>
+        <p>{TEXT.calendar.weekViewSwitch}</p>
       </div>
 
       <div className="hidden flex-col sm:flex">

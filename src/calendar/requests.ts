@@ -21,6 +21,9 @@ interface AppointmentRow {
   id: string;
   title: string;
   description: string | null;
+  client_name: string | null;
+  client_email: string | null;
+  client_phone: string | null;
   start_date: string;
   end_date: string;
   color: string | null;
@@ -35,6 +38,9 @@ const toEvent = (row: AppointmentRow, staff: IUser[]): IEvent => ({
   id: row.id,
   title: row.title,
   description: row.description ?? "",
+  clientName: row.client_name ?? "",
+  clientEmail: row.client_email ?? "",
+  clientPhone: row.client_phone ?? "",
   startDate: new Date(row.start_date).toISOString(),
   endDate: new Date(row.end_date).toISOString(),
   color: (row.color as TEventColor) || "blue",
@@ -44,6 +50,9 @@ const toEvent = (row: AppointmentRow, staff: IUser[]): IEvent => ({
 const toRow = (event: Omit<IEvent, "id">) => ({
   title: event.title,
   description: event.description,
+  client_name: event.clientName || null,
+  client_email: event.clientEmail || null,
+  client_phone: event.clientPhone || null,
   start_date: event.startDate,
   end_date: event.endDate,
   color: event.color,

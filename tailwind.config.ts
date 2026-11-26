@@ -13,6 +13,9 @@ const config: Config = {
         inter: "var(--font-sans)",
         sans: "var(--font-sans)",
       },
+      fontWeight: {
+        heading: "var(--heading-weight, 600)",
+      },
       fontSize: {
         xxs: ["0.625rem", "1rem"],
       },

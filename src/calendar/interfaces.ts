@@ -12,7 +12,12 @@ export interface IEvent {
   endDate: string;
   title: string;
   color: TEventColor;
+  /** Notes about the appointment. */
   description: string;
+  /** Who the appointment is for (empty when not given). */
+  clientName: string;
+  clientEmail: string;
+  clientPhone: string;
   user: IUser;
 }
 

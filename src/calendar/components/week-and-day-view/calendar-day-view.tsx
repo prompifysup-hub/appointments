@@ -17,6 +17,7 @@ import { cn } from "@/lib/utils";
 import { groupEvents, getEventBlockStyle, isWorkingHour, getCurrentEvents, getVisibleHours } from "@/calendar/helpers";
 
 import type { IEvent } from "@/calendar/interfaces";
+import { TEXT } from "@/config/text";
 
 interface IProps {
   singleDayEvents: IEvent[];
@@ -152,14 +153,14 @@ export function CalendarDayView({ singleDayEvents, multiDayEvents }: IProps) {
           {currentEvents.length > 0 ? (
             <div className="flex items-start gap-2 px-4 pt-4">
               <span className="relative mt-[5px] flex size-2.5">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-                <span className="relative inline-flex size-2.5 rounded-full bg-green-600"></span>
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-success opacity-75"></span>
+                <span className="relative inline-flex size-2.5 rounded-full bg-success"></span>
               </span>
 
-              <p className="text-sm font-semibold text-foreground">Happening now</p>
+              <p className="text-sm font-semibold text-foreground">{TEXT.calendar.happeningNow}</p>
             </div>
           ) : (
-            <p className="p-4 text-center text-sm italic text-muted-foreground">No appointments or consultations at the moment</p>
+            <p className="p-4 text-center text-sm italic text-muted-foreground">{TEXT.calendar.nothingNow}</p>
           )}
 
           {currentEvents.length > 0 && (

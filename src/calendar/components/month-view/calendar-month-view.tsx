@@ -7,13 +7,14 @@ import { DayCell } from "@/calendar/components/month-view/day-cell";
 import { getCalendarCells, calculateMonthEventPositions } from "@/calendar/helpers";
 
 import type { IEvent } from "@/calendar/interfaces";
+import { TEXT } from "@/config/text";
 
 interface IProps {
   singleDayEvents: IEvent[];
   multiDayEvents: IEvent[];
 }
 
-const WEEK_DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const WEEK_DAYS = TEXT.calendar.weekDays;
 
 export function CalendarMonthView({ singleDayEvents, multiDayEvents }: IProps) {
   const { selectedDate } = useCalendar();
