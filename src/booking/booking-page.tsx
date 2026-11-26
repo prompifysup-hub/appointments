@@ -91,14 +91,14 @@ export function BookingPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b">
+      <header className="bg-brand-secondary text-brand-secondary-foreground">
         <div className="mx-auto flex h-16 max-w-4xl items-center gap-3 px-6">
-          <div className="flex size-10 items-center justify-center rounded-full border">
+          <div className="flex size-10 items-center justify-center rounded-full border border-brand-secondary-foreground/25">
             <CalendarIcon className="size-5" />
           </div>
           <div>
             <p className="font-medium leading-5">{APP.name}</p>
-            <p className="text-sm text-muted-foreground">{APP.tagline}</p>
+            <p className="text-sm opacity-80">{APP.tagline}</p>
           </div>
         </div>
       </header>

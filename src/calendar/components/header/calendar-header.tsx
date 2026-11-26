@@ -28,7 +28,7 @@ export function CalendarHeader({ view, events }: IProps) {
       <div className="flex flex-col items-center gap-1.5 sm:flex-row sm:justify-between">
         <div className="flex w-full items-center gap-1.5">
           <div className="inline-flex first:rounded-r-none last:rounded-l-none [&:not(:first-child):not(:last-child)]:rounded-none">
-            <Button asChild aria-label={TEXT.calendar.viewDay} size="icon" variant={view === "day" ? "default" : "outline"} className="rounded-r-none [&_svg]:size-5">
+            <Button asChild aria-label={TEXT.calendar.viewDay} size="icon" variant="outline" data-active={view === "day"} className="rounded-r-none [&_svg]:size-5 data-[active=true]:border-highlight data-[active=true]:bg-highlight data-[active=true]:text-highlight-foreground">
               <Link to="/day-view">
                 <List strokeWidth={1.8} />
               </Link>
@@ -38,8 +38,8 @@ export function CalendarHeader({ view, events }: IProps) {
               asChild
               aria-label={TEXT.calendar.viewWeek}
               size="icon"
-              variant={view === "week" ? "default" : "outline"}
-              className="-ml-px rounded-none [&_svg]:size-5"
+              variant="outline" data-active={view === "week"}
+              className="-ml-px rounded-none [&_svg]:size-5 data-[active=true]:border-highlight data-[active=true]:bg-highlight data-[active=true]:text-highlight-foreground"
             >
               <Link to="/week-view">
                 <Columns strokeWidth={1.8} />
@@ -50,8 +50,8 @@ export function CalendarHeader({ view, events }: IProps) {
               asChild
               aria-label={TEXT.calendar.viewMonth}
               size="icon"
-              variant={view === "month" ? "default" : "outline"}
-              className="-ml-px rounded-none [&_svg]:size-5"
+              variant="outline" data-active={view === "month"}
+              className="-ml-px rounded-none [&_svg]:size-5 data-[active=true]:border-highlight data-[active=true]:bg-highlight data-[active=true]:text-highlight-foreground"
             >
               <Link to="/month-view">
                 <Grid2x2 strokeWidth={1.8} />
@@ -62,8 +62,8 @@ export function CalendarHeader({ view, events }: IProps) {
               asChild
               aria-label={TEXT.calendar.viewAgenda}
               size="icon"
-              variant={view === "agenda" ? "default" : "outline"}
-              className="-ml-px rounded-l-none [&_svg]:size-5"
+              variant="outline" data-active={view === "agenda"}
+              className="-ml-px rounded-l-none [&_svg]:size-5 data-[active=true]:border-highlight data-[active=true]:bg-highlight data-[active=true]:text-highlight-foreground"
             >
               <Link to="/agenda-view">
                 <CalendarRange strokeWidth={1.8} />

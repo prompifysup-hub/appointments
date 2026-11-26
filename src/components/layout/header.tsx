@@ -10,16 +10,16 @@ import { TEXT } from "@/config/text";
 /** Staff header: business name and tagline, the booking page link, the light / dark switch. */
 export function Header() {
   return (
-    <header className="mx-auto flex h-[88px] w-full max-w-screen-2xl items-center justify-center">
-      <div className="my-3 flex h-14 w-full items-center justify-between px-8">
+    <header className="flex h-[88px] w-full items-center justify-center bg-brand-secondary text-brand-secondary-foreground">
+      <div className="mx-auto my-3 flex h-14 w-full max-w-screen-2xl items-center justify-between px-8">
         <div className="flex items-center gap-3.5">
-          <div className="flex size-12 items-center justify-center rounded-full border p-3">
-            <Calendar className="size-6 text-foreground" />
+          <div className="flex size-12 items-center justify-center rounded-full border border-brand-secondary-foreground/25 p-3">
+            <Calendar className="size-6" />
           </div>
 
           <div className="space-y-1">
             <p className="text-lg font-medium leading-6">{APP.name}</p>
-            <p className="text-sm text-foreground">{APP.tagline}</p>
+            <p className="text-sm opacity-80">{APP.tagline}</p>
           </div>
         </div>
 

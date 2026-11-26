@@ -16,7 +16,7 @@ export function TodayButton() {
       aria-label={TEXT.calendar.today}
       title={TEXT.calendar.today}
     >
-      <p className="flex h-6 w-full items-center justify-center bg-primary text-center text-xs font-semibold text-primary-foreground">
+      <p className="flex h-6 w-full items-center justify-center bg-highlight text-center text-xs font-semibold text-highlight-foreground">
         {formatDate(today, "MMM").toUpperCase()}
       </p>
       <p className="flex w-full items-center justify-center text-lg font-bold">{today.getDate()}</p>

@@ -8,19 +8,23 @@ How the palette was mapped (for reference):
 
 | Wizard colour | Theme variables | Where it shows in this app |
 |---|---|---|
-| Primary | `--primary` (+ `--primary-foreground`, `--ring`) | Add Appointment, Create / Save, Confirm booking, the chosen time on the booking page, the active view button, today's date, the Today button's month strip, focus rings |
-| Secondary | tints `--background`, `--card`, `--muted`, `--hover`, `--input`, `--border` | Page, calendar frame, dialogs, popovers, hover states, borders (a light tint in light mode, a faint one in dark mode) |
-| Accent | `--accent` (+ `--accent-foreground`) — Tailwind class `highlight` | Highlights you add (badges, callouts); not used by default |
+| Primary | `--primary` (+ `--primary-foreground`, `--ring`) | The main actions only: Add Appointment, Create / Save, Confirm booking, the chosen time on the booking page, focus rings |
+| Secondary | `--secondary` (+ `--secondary-foreground`) — Tailwind class `brand-secondary`; also lightly tints `--background`, `--card`, `--muted`, `--hover`, `--input`, `--border` | The staff header and the booking page header (filled bands); page, frame and dialogs carry a light tint |
+| Accent | `--accent` (+ `--accent-foreground`) — Tailwind class `highlight`; `--accent-strong` = `text-highlight-strong` | Today's date in the month view, the Today button's month strip, the active view button; highlights you add (badges, callouts) |
 | (from the style) | `--foreground`, `--muted-foreground` | Main and secondary text |
 | (fixed meaning) | `--success`, `--warning`, `--destructive` | "Happening now", the booking confirmation tick, Delete and errors |
 
 Class names (shadcn): `bg-background`, `bg-card`, `bg-popover`, `bg-muted`, `bg-secondary`,
 `border-border`, `border-input`, `text-foreground`, `text-muted-foreground`, `bg-primary` +
-`text-primary-foreground`, `text-primary`, `bg-highlight` + `text-highlight-foreground` (the brand
-accent), `bg-accent` + `text-accent-foreground` (shadcn's SUBTLE HOVER, not the brand accent),
+`text-primary-foreground`, `text-primary`, `bg-brand-secondary` + `text-brand-secondary-foreground`
+(the brand's second colour), `bg-highlight` + `text-highlight-foreground` (the brand accent),
+`text-highlight-strong` (accent as text or icons), `bg-accent` + `text-accent-foreground` (shadcn's SUBTLE HOVER, not the brand accent),
 `text-success`, `text-destructive`, `ring-ring`. Opacity works: `bg-primary/15`.
 
 Rules for components:
+- Balance the three colours: primary for the main action of each screen, `brand-secondary` for
+  structural bands (headers, section headers, hero areas), `highlight` for selected / active states,
+  today, counts and highlights. Do not make everything primary.
 - Use only theme classes for the interface; never raw Tailwind colours (`bg-zinc-900`,
   `text-blue-600`) or hex / rgb values.
 - Text on a filled colour uses its pair: `bg-primary` → `text-primary-foreground`.

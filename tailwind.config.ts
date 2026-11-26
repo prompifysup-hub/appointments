@@ -59,7 +59,9 @@ const config: Config = {
         secondary: { DEFAULT: token("muted"), foreground: token("foreground") },
         muted: { DEFAULT: token("muted"), foreground: token("muted-foreground") },
         accent: { DEFAULT: token("hover"), foreground: token("hover-foreground") },
-        highlight: { DEFAULT: token("accent"), foreground: token("accent-foreground") },
+        highlight: { DEFAULT: token("accent"), foreground: token("accent-foreground"), strong: token("accent-strong") },
+        // The brand's second colour (shadcn's own `secondary` above is the neutral button fill).
+        "brand-secondary": { DEFAULT: token("secondary"), foreground: token("secondary-foreground") },
         destructive: { DEFAULT: token("destructive"), foreground: token("destructive-foreground") },
         success: token("success"),
         warning: token("warning"),
